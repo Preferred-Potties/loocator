@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>531810327103-b3f6c6ac21k0h1687i5fbq93g1om9n4j.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.531810327103-b3f6c6ac21k0h1687i5fbq93g1om9n4j</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBI08bRuYte-3jVs_Xrg4sfg8j7nbL3EYE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>531810327103</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.firstFlutter</string>
+	<key>PROJECT_ID</key>
+	<string>loocater-dad78</string>
+	<key>STORAGE_BUCKET</key>
+	<string>loocater-dad78.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:531810327103:ios:db26a8608efd4827c5b68a</string>
+	<key>DATABASE_URL</key>
+	<string>https://loocater-dad78-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>

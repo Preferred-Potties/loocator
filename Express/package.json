@@ -1,0 +1,45 @@
+{
+  "name": "backend-express-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "jest --verbose --runInBand --testLocationInResults --setupFiles dotenv/config --passWithNoTests",
+    "test:watch": "npm run test -- --watch",
+    "start": "node -r dotenv/config server.js",
+    "start:watch": "nodemon -r dotenv/config server.js",
+    "setup-db": "node -r dotenv/config setup-db.js",
+    "setup-heroku": "heroku run npm run setup-db"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.18.2",
+    "@babel/eslint-parser": "^7.18.2",
+    "@babel/eslint-plugin": "^7.17.7",
+    "@babel/plugin-syntax-class-properties": "^7.12.13",
+    "@types/jest": "^28.1.1",
+    "@types/pg": "^8.6.5",
+    "eslint": "^8.17.0",
+    "jest": "^28.1.0",
+    "nodemon": "^2.0.16",
+    "prettier": "^2.6.2",
+    "supertest": "^6.2.3"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.7.3",
+    "ws": "^8.13.0"
+  }
+}
