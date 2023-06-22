@@ -17,7 +17,6 @@ module.exports = Router()
       next(e);
     }
   })
-
   .post('/sessions', async (req, res, next) => {
     try {
       const token = await UserService.signIn(req.body); // go check if they can have a wristband

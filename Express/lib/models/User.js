@@ -13,14 +13,14 @@ module.exports = class User {
     this.#passwordHash = row.password_hash;
   }
 
-  static async insert({ username, email, passwordHash }) {
+  static async insert({ email, passwordHash, username }) {
     const { rows } = await pool.query(
       `
-      INSERT INTO users (username, email, password_hash)
+      INSERT INTO users (email, password_hash, username)
       VALUES ($1, $2, $3)
       RETURNING *
     `,
-      [username, email, passwordHash]
+      [email, passwordHash, username]
     );
 
     return new User(rows[0]);

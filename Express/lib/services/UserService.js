@@ -16,6 +16,7 @@ module.exports = class UserService {
       passwordHash,
     });
 
+    console.log('user in create', user);
     return user;
   }
 

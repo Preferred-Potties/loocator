@@ -14,6 +14,8 @@ const mockUser = {
 const mockLoo = {
   description: 'This loo is nice!',
   rating: '5',
+  latitude: '45.5226327',
+  longitude: '-122.7002726',
 };
 
 const registerAndLogin = async (userProps = {}) => {
@@ -25,7 +27,7 @@ const registerAndLogin = async (userProps = {}) => {
   return [agent, user];
 };
 
-describe.skip('loo routes', () => {
+describe('loo routes', () => {
   beforeEach(() => {
     return setup(pool);
   });

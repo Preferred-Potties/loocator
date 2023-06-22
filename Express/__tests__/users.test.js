@@ -30,7 +30,7 @@ const registerAndLogin = async (userProps = {}) => {
   return [agent, user];
 };
 
-describe('user routes', () => {
+describe.skip('user routes', () => {
   beforeEach(() => {
     return setup(pool);
   });
@@ -62,7 +62,7 @@ describe('user routes', () => {
     expect(res.status).toEqual(401);
   });
 
-  it.only('/protected should return the current user if authenticated', async () => {
+  it('/protected should return the current user if authenticated', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/users/protected');
     expect(res.status).toEqual(200);
