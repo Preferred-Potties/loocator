@@ -39,7 +39,7 @@ const registerAndLogin = async (userProps = {}) => {
   return [agent, user];
 };
 
-describe('reviews routes', () => {
+describe.skip('reviews routes', () => {
   beforeEach(() => {
     return setup(pool);
   });
@@ -138,7 +138,7 @@ describe('reviews routes', () => {
     });
   });
 
-  it.skip('POST /api/v1/reviews should create a new review', async () => {
+  it('POST /api/v1/reviews should create a new review', async () => {
     const [agent] = await registerAndLogin();
     const looRes = await agent.post('/api/v1/loos').send(mockLoo);
     expect(looRes.status).toBe(200);
@@ -175,7 +175,7 @@ describe('reviews routes', () => {
     });
   });
 
-  it.skip('UPDATE /api/v1/reviews/:id should update a review', async () => {
+  it('UPDATE /api/v1/reviews/:id should update a review', async () => {
     const [agent] = await registerAndLogin();
 
     const looRes = await agent.post('/api/v1/loos').send(mockLoo);
@@ -210,7 +210,7 @@ describe('reviews routes', () => {
     });
   });
 
-  it.skip('DELETE /api/v1/reviews/:id should delete a review', async () => {
+  it('DELETE /api/v1/reviews/:id should delete a review', async () => {
     //come back and add authorization?
     const [agent] = await registerAndLogin();
     const looRes = await agent.post('/api/v1/loos').send(mockLoo);

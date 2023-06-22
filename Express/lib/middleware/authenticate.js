@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 module.exports = async (req, res, next) => {
   try {
     const cookie = req.cookies[process.env.COOKIE_NAME];
+    console.log('in AUTHENTICATE middleware', req.cookies);
     // Check the httpOnly session cookie for the current user
     if (!cookie) throw new Error('You must be signed in to continue');
 

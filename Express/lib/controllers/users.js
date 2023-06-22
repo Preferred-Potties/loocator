@@ -32,8 +32,14 @@ module.exports = Router()
     res.json(req.user);
   })
 
-  .get('/protected', authenticate, async (req, res) => {
+  .get('/protected', authenticate, async (req, res, next) => {
     res.json({ message: 'hello world' });
+    try {
+      const users = await User.getByUsername();
+      res.json(users);
+    } catch (e) {
+      next(e);
+    }
   })
 
   .get('/', [authenticate, authorize], async (req, res, next) => {

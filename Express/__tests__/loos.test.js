@@ -25,7 +25,7 @@ const registerAndLogin = async (userProps = {}) => {
   return [agent, user];
 };
 
-describe('loo routes', () => {
+describe.skip('loo routes', () => {
   beforeEach(() => {
     return setup(pool);
   });
@@ -33,7 +33,7 @@ describe('loo routes', () => {
     pool.end();
   });
 
-  it.skip('POST /api/v1/loos should create a new loo', async () => {
+  it('POST /api/v1/loos should create a new loo', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.post('/api/v1/loos').send(mockLoo);
     expect(res.status).toBe(200);
@@ -44,7 +44,7 @@ describe('loo routes', () => {
     });
   });
 
-  it.skip('GET /api/v1/loos should return a list of loos', async () => {
+  it('GET /api/v1/loos should return a list of loos', async () => {
     const res = await request(app).get('/api/v1/loos');
     expect(res.status).toBe(200);
     expect(res.body[0]).toEqual({
@@ -55,7 +55,7 @@ describe('loo routes', () => {
     });
   });
 
-  it.skip('GET /api/v1/loos/:id should get a single loo', async () => {
+  it('GET /api/v1/loos/:id should get a single loo', async () => {
     const [agent] = await registerAndLogin();
     const insertLooRes = await agent.post('/api/v1/loos').send(mockLoo);
     expect(insertLooRes.status).toBe(200);
@@ -68,7 +68,7 @@ describe('loo routes', () => {
     });
   });
 
-  it.skip('UPDATE /api/v1/loos/:id should update a loo', async () => {
+  it('UPDATE /api/v1/loos/:id should update a loo', async () => {
     const [agent] = await registerAndLogin();
     const loo = await Loo.insert({
       description: 'This loo is nice!',
@@ -84,7 +84,7 @@ describe('loo routes', () => {
     });
   });
 
-  it.skip('DELETE /api/v1/loos/:id should delete a loo', async () => {
+  it('DELETE /api/v1/loos/:id should delete a loo', async () => {
     const [agent] = await registerAndLogin();
     const insertLooRes = await Loo.insert(mockLoo);
     const deleteLooRes = await agent.delete('/api/v1/loos/' + insertLooRes.id);

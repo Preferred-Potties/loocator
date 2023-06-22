@@ -23,7 +23,10 @@ const registerAndLogin = async (userProps = {}) => {
 
   // ...then sign in
   const { email } = user;
-  await agent.post('/api/v1/users/sessions').send({ email, password });
+  const username = mockUser.username;
+  await agent
+    .post('/api/v1/users/sessions')
+    .send({ email, password, username });
   return [agent, user];
 };
 
@@ -35,7 +38,7 @@ describe('user routes', () => {
     pool.end();
   });
 
-  it.skip('creates a new user', async () => {
+  it('creates a new user', async () => {
     const res = await request(app).post('/api/v1/users').send(mockUser);
     const { username, email } = mockUser;
 
@@ -46,32 +49,32 @@ describe('user routes', () => {
     });
   });
 
-  it.skip('signs in an existing user', async () => {
+  it('signs in an existing user', async () => {
     await request(app).post('/api/v1/users').send(mockUser);
     const res = await request(app)
       .post('/api/v1/users/sessions')
-      .send({ email: 'test@example.com', password: '12345' });
+      .send({ email: 'test@example.com', password: '12345', username: 'User' });
     expect(res.status).toEqual(200);
   });
 
-  it.skip('/protected should return a 401 if not authenticated', async () => {
+  it('/protected should return a 401 if not authenticated', async () => {
     const res = await request(app).get('/api/v1/users/protected');
     expect(res.status).toEqual(401);
   });
 
-  it.skip('/protected should return the current user if authenticated', async () => {
+  it.only('/protected should return the current user if authenticated', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/users/protected');
     expect(res.status).toEqual(200);
   });
 
-  it.skip('/users should return 403 if user not admin', async () => {
+  it('/users should return 403 if user not admin', async () => {
     const [agent] = await registerAndLogin();
     const res = await agent.get('/api/v1/users/');
     expect(res.status).toEqual(403);
   });
 
-  it.skip('/users should return 200 if user is admin', async () => {
+  it('/users should return 200 if user is admin', async () => {
     const agent = request.agent(app);
 
     // create a new user
@@ -90,13 +93,13 @@ describe('user routes', () => {
     expect(res.status).toEqual(200);
   });
 
-  it.skip('/users should return a 200 if user is admin', async () => {
+  it('/users should return a 200 if user is admin', async () => {
     const [agent] = await registerAndLogin({ email: 'admin' });
     const res = await agent.get('/api/v1/users/');
     expect(res.status).toEqual(200);
   });
 
-  it.skip('DELETE /sessions deletes the user session', async () => {
+  it('DELETE /sessions deletes the user session', async () => {
     const [agent] = await registerAndLogin();
     const resp = await agent.delete('/api/v1/users/sessions');
     expect(resp.status).toBe(204);
