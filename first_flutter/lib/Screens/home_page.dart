@@ -224,6 +224,7 @@ class _HomeScreenState extends State<HomeScreen> {
           IconButton(
             icon: const Icon(Icons.logout),
             onPressed: logout,
+            tooltip: 'Logout',
           ),
           IconButton(
             icon: const Icon(Icons.refresh),
@@ -237,6 +238,7 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: themeProvider.isDarkMode
                 ? const Icon(Icons.light_mode)
                 : const Icon(Icons.dark_mode),
+            tooltip: 'Dark mode',
           ),
           ElevatedButton(
             child: const Text('Add a loo'),

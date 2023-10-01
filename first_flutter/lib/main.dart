@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
               '/Details': (context) => const DetailsScreen(),
               '/Login': (context) => const LoginPage(),
             },
-            title: 'Loocater Login',
+            title: 'loocator Login',
             debugShowCheckedModeBanner: false,
             theme: themeProvider.isDarkMode
                 ? AppThemes.darkTheme

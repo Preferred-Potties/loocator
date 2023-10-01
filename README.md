@@ -1,5 +1,5 @@
-# Loocater
-The "Loocater" app is a mobile application built in Flutter that helps users find and review public restrooms. Leveraging the power of Google Maps integration, the app provides a user-friendly interface to locate nearby restrooms, add new restroom locations, and leave reviews for existing restrooms.
+# loocator
+The "loocator" app is a mobile application built in Flutter that helps users find and review public restrooms. Leveraging the power of Google Maps integration, the app provides a user-friendly interface to locate nearby restrooms, add new restroom locations, and leave reviews for existing restrooms.
 
 ## Features
 - Interactive Map: Utilize the intuitive map interface powered by Google Maps to discover nearby public restrooms.
@@ -10,9 +10,9 @@ The "Loocater" app is a mobile application built in Flutter that helps users fin
 <br>![](Flutter/assets/addReview.gif)![](Flutter/assets/reviews.gif)
 - Search Functionality: Implement a search feature to enable users to find restrooms based on location, specific amenities, or accessibility options.
 - Secure Authentication: Ensure user privacy and security with a robust authentication system that allows users to create accounts and securely access the app's features.
-The "Loocater" app aims to make the process of finding and reviewing public restrooms convenient and reliable for users, enhancing their overall experience while on the go.
+The "loocator" app aims to make the process of finding and reviewing public restrooms convenient and reliable for users, enhancing their overall experience while on the go.
 
-## Getting Loocater setup locally
+## Getting loocator setup locally
 
 1. Download and Install Node.js and npm:
 - Visit the official Node.js website (https://nodejs.org) and download the appropriate version for your operating system.
@@ -48,16 +48,16 @@ The "Loocater" app aims to make the process of finding and reviewing public rest
   - Select the desired system image and click "Next".
   - Configure the AVD options as needed and click "Finish".
 
-4. Clone and Set Up the Preferred Potties Loocater Repository:
+4. Clone and Set Up the Preferred Potties loocator Repository:
 - Open your terminal or command prompt.
 - Navigate to the directory where you want to clone the repository.
-- Run the following command to clone the repository: git clone https://github.com/Preferred-Potties/loocater.git
-- Navigate into the cloned repository: cd Loocater
+- Run the following command to clone the repository: git clone https://github.com/Preferred-Potties/loocator.git
+- Navigate into the cloned repository: cd loocator
 - Install the project dependencies by running the following command: flutter pub get
 
 5. Running the App:
 - Open a terminal or command prompt.
-- Navigate to the cloned repository: cd Loocater
+- Navigate to the cloned repository: cd loocator
 - Navigate to the Express server directory: cd express
 - Install the server dependencies: npm i
 - Set up the database: npm run setup-db
