@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
 module.exports = class UserService {
-  static async create({ username, email, password }) {
+  static async create({ username, email, password, favorites }) {
     console.log(username, email, '============');
     const passwordHash = await bcrypt.hash(
       password,
@@ -14,6 +14,7 @@ module.exports = class UserService {
       username,
       email,
       passwordHash,
+      favorites,
     });
 
     return user;

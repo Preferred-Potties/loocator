@@ -8,8 +8,10 @@ CREATE TABLE users (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   email VARCHAR NOT NULL UNIQUE,
   password_hash VARCHAR,
-  username VARCHAR
+  username VARCHAR,
+  favorites BIGINT ARRAY 
 );
+
 
 CREATE TABLE loos (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -44,7 +46,8 @@ VALUES
 ('Really stinky', '2', '45.5226327', '-122.7002726')
 ;
 
-INSERT INTO users (username, email, password_hash) VALUES ('test', 'test@test.com', NULL);
+
+INSERT INTO users (username, email, password_hash, favorites) VALUES ('test', 'test@test.com', NULL, '{1}');
 
 INSERT INTO
 reviews(cleanliness, safety, accessibility, gendered, locks,

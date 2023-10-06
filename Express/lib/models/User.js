@@ -5,22 +5,24 @@ module.exports = class User {
   username;
   email;
   #passwordHash; // private class field: hides it from anything outside of this class definition
+  favorites;
 
   constructor(row) {
     this.id = row.id;
     this.username = row.username;
     this.email = row.email;
     this.#passwordHash = row.password_hash;
+    this.favorites = row.favorites;
   }
 
-  static async insert({ username, email, passwordHash }) {
+  static async insert({ username, email, passwordHash, favorites }) {
     const { rows } = await pool.query(
       `
-      INSERT INTO users (username, email, password_hash)
-      VALUES ($1, $2, $3)
+      INSERT INTO users (username, email, password_hash, favorites)
+      VALUES ($1, $2, $3, $4)
       RETURNING *
     `,
-      [username, email, passwordHash]
+      [username, email, passwordHash, favorites]
     );
 
     return new User(rows[0]);

@@ -21,9 +21,9 @@ class RegisterScreen extends State<RegisterPage> {
   bool isLoading = false;
   // bool registrationResult = false;
 
-  signUp(String username, String email, String password) async {
+  signUp(String username, String email, String password, List favorites) async {
     String url = "http://10.0.2.2:3000/api/v1/users";
-    Map body = {"username": username, "email": email, "password": password};
+    Map body = {"username": username, "email": email, "password": password, "favorites": favorites};
     var client = http.Client();
     var res = await client.post(
       Uri.parse(url),
@@ -94,9 +94,9 @@ class RegisterScreen extends State<RegisterPage> {
   }
 
   void registerAndLoginUser(
-      String username, String email, String password) async {
+      String username, String email, String password, List favorites) async {
     // Register user
-    await signUp(username, email, password).then((registrationResult) async {
+    await signUp(username, email, password, favorites).then((registrationResult) async {
       if (registrationResult == 'success') {
         // Registration successful, now login user
         await signIn(username, password).then((loginResult) {
@@ -198,7 +198,7 @@ class RegisterScreen extends State<RegisterPage> {
                           isLoading = true;
                         });
                         registerAndLoginUser(usernameController.text,
-                            emailController.text, passwordController.text);
+                            emailController.text, passwordController.text, []);
                       },
                 style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
