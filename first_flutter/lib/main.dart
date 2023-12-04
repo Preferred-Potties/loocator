@@ -11,9 +11,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 const List<String> list = <String>['One', 'Two', 'Three', 'Four'];
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -26,8 +24,7 @@ class MyApp extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return MultiProvider(
+  Widget build(BuildContext context) => MultiProvider(
         providers: [
           ChangeNotifierProvider<LooIdProvider>(
             create: (_) => LooIdProvider(),
@@ -36,8 +33,8 @@ class MyApp extends StatelessWidget {
             create: (_) => ThemeProvider(),
           )
         ],
-        child: Consumer<ThemeProvider>(builder: (context, themeProvider, _) {
-          return MaterialApp(
+        child: Consumer<ThemeProvider>(
+          builder: (context, themeProvider, _) => MaterialApp(
             routes: {
               '/AddLoo': (context) => const AddLooScreen(),
               '/AddReviews': (context) => const ReviewScreen(),
@@ -50,31 +47,31 @@ class MyApp extends StatelessWidget {
                 ? AppThemes.darkTheme
                 : AppThemes.lightTheme,
             home: FutureBuilder(
-                future: jwtOrEmpty,
-                builder: (context, snapshot) {
-                  if (!snapshot.hasData) return const LoginPage();
-                  if (snapshot.data != "N") {
-                    dynamic str = snapshot.data;
-                    dynamic jwt =
-                        str.length > 1 ? str.toString().split(".") : "";
-                    if (jwt.length != 3) {
-                      return const LoginPage();
-                    } else {
-                      var payload = json.decode(ascii
-                          .decode(base64.decode(base64.normalize(jwt[1]))));
-                      if (DateTime.fromMillisecondsSinceEpoch(
-                              payload["exp"] * 1000)
-                          .isAfter(DateTime.now())) {
-                        return const HomeScreen();
-                      } else {
-                        return const LoginPage();
-                      }
-                    }
-                  } else {
+              future: jwtOrEmpty,
+              builder: (context, snapshot) {
+                if (!snapshot.hasData) return const LoginPage();
+                if (snapshot.data != "N") {
+                  dynamic str = snapshot.data;
+                  dynamic jwt = str.length > 1 ? str.toString().split(".") : "";
+                  if (jwt.length != 3) {
                     return const LoginPage();
+                  } else {
+                    var payload = json.decode(
+                        ascii.decode(base64.decode(base64.normalize(jwt[1]))));
+                    if (DateTime.fromMillisecondsSinceEpoch(
+                            payload["exp"] * 1000)
+                        .isAfter(DateTime.now())) {
+                      return const HomeScreen();
+                    } else {
+                      return const LoginPage();
+                    }
                   }
-                }),
-          );
-        }));
-  }
+                } else {
+                  return const LoginPage();
+                }
+              },
+            ),
+          ),
+        ),
+      );
 }

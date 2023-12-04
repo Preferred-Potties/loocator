@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class LockedActionChip extends StatefulWidget {
-  const LockedActionChip({Key? key}) : super(key: key);
+  const LockedActionChip({super.key});
 
   @override
   State<LockedActionChip> createState() => _LockedActionChipState();

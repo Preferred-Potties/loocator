@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class GenderedActionChip extends StatefulWidget {
-  const GenderedActionChip({Key? key}) : super(key: key);
+  const GenderedActionChip({super.key});
 
   @override
   State<GenderedActionChip> createState() => _GenderedActionChipState();
