@@ -11,7 +11,7 @@ import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 
 class DetailsScreen extends StatefulWidget {
-  const DetailsScreen({Key? key}) : super(key: key);
+  const DetailsScreen({super.key});
   @override
   _DetailsScreenState createState() => _DetailsScreenState();
 }

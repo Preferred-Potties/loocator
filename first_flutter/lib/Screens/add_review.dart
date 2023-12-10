@@ -9,7 +9,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class ReviewScreen extends StatefulWidget {
-  const ReviewScreen({Key? key}) : super(key: key);
+  const ReviewScreen({super.key});
 
   @override
   ReviewScreenState createState() {

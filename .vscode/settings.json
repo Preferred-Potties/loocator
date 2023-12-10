@@ -1,12 +1,9 @@
 {
-  "cSpell.words": [
-    "Loocater",
-    "Loocator",
-    "prefs"
-  ],
+  "cSpell.words": ["Loocater", "Loocator", "prefs"],
   "workbench.colorCustomizations": {
     "activityBar.background": "#0E341F",
     "titleBar.activeBackground": "#13492C",
     "titleBar.activeForeground": "#F5FCF8"
-  }
+  },
+  "githubPullRequests.ignoredPullRequestBranches": ["main"]
 }

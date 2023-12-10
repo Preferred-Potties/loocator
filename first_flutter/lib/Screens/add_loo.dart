@@ -9,7 +9,7 @@ import 'dart:convert';
 import 'package:provider/provider.dart';
 
 class AddLooScreen extends StatefulWidget {
-  const AddLooScreen({Key? key}) : super(key: key);
+  const AddLooScreen({super.key});
 
   @override
   AddLooScreenState createState() {

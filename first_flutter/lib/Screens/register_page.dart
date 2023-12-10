@@ -8,7 +8,7 @@ import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class RegisterPage extends StatefulWidget {
-  const RegisterPage({Key? key}) : super(key: key);
+  const RegisterPage({super.key});
   @override
   RegisterScreen createState() => RegisterScreen();
 }
